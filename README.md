@@ -27,15 +27,17 @@ Things you may want to cover:
 
 ## usersテーブル
 
-| Column                | Type     | Options     |
-| --------------------- | -------- | ----------- |
-| nickname              | string   | null: false |
-| mail                  | string   | null: false |
-| password              | string   | null: false |
-| password_confirmation | string   | null: false |
-| name_full_width       | string   | null: false |
-| name_kana_full_width  | string   | null: false |
-| birthday              | integer  | null: false |
+| Column                | Type     | Options      |
+| --------------------- | -------- | ------------ |
+| nickname              | string   | null: false  |
+| email                 | string   | unique :true |
+| encrypted_password    | string   | null: false  |
+| last_name             | string   | null: false  |
+| name                  | string   | null: false  |
+| last_name_furigana    | string   | null: false  |
+| name_furigana         | string   | null: false  |
+| name_kana_full_width  | string   | null: false  |
+| birthday              | date     | null: false  |
 
 ### Association
 
@@ -50,9 +52,9 @@ Things you may want to cover:
 | description_of_item    | text       | null: false                    |
 | product_category_id    | integer    | null: false                    |
 | product_status_id      | integer    | null: false                    |
-| delivery_burden_id     | integer    | null: false                    |
-| delivery_area_id       | integer    | null: false                    |
-| date_until_delivery_id | integer    | null: false                    |
+| shipping_charges_id    | integer    | null: false                    |
+| shipping_area_id       | integer    | null: false                    |
+| day_to_ship_id         | integer    | null: false                    |
 | selling_price_id       | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
 
@@ -79,7 +81,7 @@ Things you may want to cover:
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | pastel_code      | string     | null: false                    |
-| delivery_area    | string     | null: false                    |
+| shipping_area_id | integer     | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
