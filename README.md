@@ -27,17 +27,16 @@ Things you may want to cover:
 
 ## usersテーブル
 
-| Column                | Type     | Options      |
-| --------------------- | -------- | ------------ |
-| nickname              | string   | null: false  |
-| email                 | string   | unique :true |
-| encrypted_password    | string   | null: false  |
-| last_name             | string   | null: false  |
-| name                  | string   | null: false  |
-| last_name_furigana    | string   | null: false  |
-| name_furigana         | string   | null: false  |
-| name_kana_full_width  | string   | null: false  |
-| birthday              | date     | null: false  |
+| Column                | Type     | Options                   |
+| --------------------- | -------- | ------------------------- |
+| nickname              | string   | null: false               |
+| email                 | string   | unique :true, null: false |
+| encrypted_password    | string   | null: false               |
+| last_name             | string   | null: false               |
+| name                  | string   | null: false               |
+| last_name_furigana    | string   | null: false               |
+| name_furigana         | string   | null: false               |
+| birthday              | date     | null: false               |
 
 ### Association
 
@@ -55,7 +54,7 @@ Things you may want to cover:
 | shipping_charges_id    | integer    | null: false                    |
 | shipping_area_id       | integer    | null: false                    |
 | day_to_ship_id         | integer    | null: false                    |
-| selling_price_id       | integer    | null: false                    |
+| selling_price          | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
 
 ### Association
@@ -63,7 +62,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_one    :purchase
 
-## purchaseテーブル
+## purchasesテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -76,12 +75,12 @@ Things you may want to cover:
 - belongs_to :item
 - has_one    :shipping_address
 
-## shipping_addressテーブル
+## shipping_addressesテーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | pastel_code      | string     | null: false                    |
-| shipping_area_id | integer     | null: false                    |
+| shipping_area_id | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
