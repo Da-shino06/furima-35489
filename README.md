@@ -33,9 +33,9 @@ Things you may want to cover:
 | email                 | string   | unique :true, null: false |
 | encrypted_password    | string   | null: false               |
 | last_name             | string   | null: false               |
-| name                  | string   | null: false               |
+| first_name            | string   | null: false               |
 | last_name_furigana    | string   | null: false               |
-| name_furigana         | string   | null: false               |
+| first_name_furigana   | string   | null: false               |
 | birthday              | date     | null: false               |
 
 ### Association
@@ -51,7 +51,7 @@ Things you may want to cover:
 | description_of_item    | text       | null: false                    |
 | product_category_id    | integer    | null: false                    |
 | product_status_id      | integer    | null: false                    |
-| shipping_charges_id    | integer    | null: false                    |
+| shipping_charge_id     | integer    | null: false                    |
 | shipping_area_id       | integer    | null: false                    |
 | day_to_ship_id         | integer    | null: false                    |
 | selling_price          | integer    | null: false                    |
@@ -81,7 +81,7 @@ Things you may want to cover:
 | ---------------- | ---------- | ------------------------------ |
 | pastel_code      | string     | null: false                    |
 | shipping_area_id | integer    | null: false                    |
-| municipalities   | string     | null: false                    |
+| municipality     | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
 | telephone_number | string     | null: false                    |
