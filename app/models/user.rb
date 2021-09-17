@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
-  validates :email, presence: true
-  validates :encrypted_password, presence: true
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_furigana, presence: true
@@ -23,6 +21,4 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is including both English letter and number'
 
-  has_many :items
-  has_many :purchases
 end
