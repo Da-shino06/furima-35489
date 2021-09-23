@@ -28,27 +28,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description of item can't be blank")
       end
       it '商品カテゴリーが空では出品できない' do
-        @item.product_category_id = '0'
+        @item.product_category_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Product category can't be blank")
       end
       it '商品状態が空では出品できない' do
-        @item.product_status_id = '0'
+        @item.product_status_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Product status can't be blank")
       end
       it '配送料の負担が空では出品できない' do
-        @item.shipping_charge_id = '0'
+        @item.shipping_charge_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
       end
       it '発送元の地域が空では出品できない' do
-        @item.shipping_area_id = '0'
+        @item.shipping_area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area can't be blank")
       end
       it '発送までの日数が空では出品できない' do
-        @item.day_to_ship_id = '0'
+        @item.day_to_ship_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Day to ship can't be blank")
       end
@@ -58,7 +58,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Selling price can't be blank")
       end
       it '販売価格が¥300~¥9,999,999の間でないと出品できない' do
-        @item.selling_price = '100'
+        @item.selling_price = 100
         @item.valid?
         expect(@item.errors.full_messages).to include('Selling price must be greater than or equal to 300')
       end
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Selling price is not a number')
       end
       it '販売価格が¥10,000,000以上では出品できない' do
-        @item.selling_price = '10000000'
+        @item.selling_price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Selling price must be less than or equal to 9999999')
       end
