@@ -22,4 +22,5 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is including both English letter and number'
 
   has_many :items
+  has_many :purchases
 end
