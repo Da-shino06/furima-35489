@@ -25,9 +25,9 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         expect(@purchase_shipping_address.errors.full_messages).to include("Postel code can't be blank")
       end
       it 'postel_codeが半角のハイフンを含んだ正しい形で入力しないと保存できないこと' do
-        @purchase_shipping_address.postel_code = 1111111
+        @purchase_shipping_address.postel_code = 1_111_111
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Postel code is invalid. Include hyphen(-)")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Postel code is invalid. Include hyphen(-)')
       end
       it 'shipping_areaが空だと保存できないこと' do
         @purchase_shipping_address.shipping_area_id = 0
@@ -50,9 +50,9 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         expect(@purchase_shipping_address.errors.full_messages).to include("Telephone number can't be blank")
       end
       it 'telephone_numberは11桁以内の数値でなければ保存できないこと' do
-        @purchase_shipping_address.telephone_number = 112345678909
+        @purchase_shipping_address.telephone_number = 112_345_678_909
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'userが紐付いていないと保存できないこと' do
         @purchase_shipping_address.user_id = ''
@@ -63,6 +63,11 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         @purchase_shipping_address.item_id = ''
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'tokenが空では保存できないこと' do
+        @purchase_shipping_address.token = ''
+        @purchase_shipping_address.valid?
+        expect(@purchase_shipping_address.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
