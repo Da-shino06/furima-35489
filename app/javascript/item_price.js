@@ -9,5 +9,5 @@ window.addEventListener('load', () => {
     const  ProfitDom = document.getElementById("profit");
     profitprice = Math.floor(inputValue - addtax)
     ProfitDom.innerHTML = profitprice
-})
+  })
 });

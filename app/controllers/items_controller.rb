@@ -20,13 +20,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-    if @item.user != current_user
-      redirect_to root_path 
-    end
+    redirect_to root_path if @item.user != current_user
+    redirect_to root_path if @item.purchase
   end
 
   def update

@@ -79,7 +79,7 @@ Things you may want to cover:
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| pastel_code      | string     | null: false                    |
+| postel_code      | string     | null: false                    |
 | shipping_area_id | integer    | null: false                    |
 | municipality     | string     | null: false                    |
 | address          | string     | null: false                    |
