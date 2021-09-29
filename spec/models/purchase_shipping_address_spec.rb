@@ -54,6 +54,16 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include('Telephone number is invalid')
       end
+      it 'telephone_numberは9桁以下の数値では保存できないこと' do
+        @purchase_shipping_address.telephone_number = 112_345
+        @purchase_shipping_address.valid?
+        expect(@purchase_shipping_address.errors.full_messages).to include('Telephone number is invalid')
+      end
+      it 'telephone_numberは12桁以上の数値では保存できないこと' do
+        @purchase_shipping_address.telephone_number = 112_345_678_909_111
+        @purchase_shipping_address.valid?
+        expect(@purchase_shipping_address.errors.full_messages).to include('Telephone number is invalid')
+      end
       it 'userが紐付いていないと保存できないこと' do
         @purchase_shipping_address.user_id = ''
         @purchase_shipping_address.valid?
